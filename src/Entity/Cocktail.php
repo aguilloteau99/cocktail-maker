@@ -20,7 +20,7 @@ class Cocktail
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $Nom;
+    private $nom;
 
     /**
      * @ORM\ManyToOne(targetEntity=Fruit::class, inversedBy="cocktails")
@@ -34,12 +34,12 @@ class Cocktail
 
     public function getNom(): ?string
     {
-        return $this->Nom;
+        return $this->nom;
     }
 
-    public function setNom(string $Nom): self
+    public function setNom(string $nom): self
     {
-        $this->Nom = $Nom;
+        $this->nom = $nom;
 
         return $this;
     }
