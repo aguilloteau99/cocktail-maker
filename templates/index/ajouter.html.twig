@@ -23,8 +23,6 @@
 			<div class="mb-3" id="div-select-fruit" style="display: none;">
 				<label class="form-label" for="fruit">Fruit :</label>
 				<select class="form-select" id="fruit" name="fruit">
-					<option value="0">yes</option>
-					<option value="1">yes1</option>
 				</select>
 			</div>
 
@@ -36,23 +34,24 @@
 	<script>
 		function onFruitSelect(){
 			let idColor = document.getElementById('couleur').value;
-			if(idColor !== -1) {
+			if(idColor !== '-1') {
 				document.getElementById('div-select-fruit').style.display = 'inherit';
 
 				let url = 'http://localhost/__symfony/cocktail-maker/public/filtre-fruits-par-couleur/'+idColor;
 				let sel = document.getElementById('fruit');
-				for(let i = 0; i < sel.options.length+1; i++){
-					sel.options[i].remove();
-					console.log(sel.options.length);
-				}
-				/*axios.get(url).then(function (response) {
+				Array.from(sel.getElementsByTagName('option')).forEach((item) =>{
+					item.remove();
+				});
+				axios.get(url).then(function (response) {
 					for(let i = 0; i < response.data.length; i++){
 						let opt = document.createElement('option');
 						opt.value = response.data[i].id;
 						opt.text = response.data[i].nom;
 						sel.add(opt, null);
 					}
-				});*/
+				});
+			}else{
+				document.getElementById('div-select-fruit').style.display = 'none';
 			}
 		};
 	</script>
