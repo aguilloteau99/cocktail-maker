@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un cocktail
+{% endblock %}
+
+{% block body %}
+	<h1>Ajouter un cocktail</h1>
+
+	<div class="row">
+		<div class="col-6">
+			{{ form_start(formCocktail) }}
+			{{ form_widget(formCocktail) }}
+			<label class="form-label" for="couleur">Couleur :</label>
+			<select class="form-select" id="couleur" name="couleur">
+				<option value="1">Rouge</option>
+				<option value="2">Orange</option>
+			</select>
+
+			<label class="form-label" for="fruit">Fruit :</label>
+			<select class="form-select" id="fruit" name="fruit">
+				<option value="1">Cerise</option>
+				<option value="2">Tomate</option>
+			</select>
+
+			<button type="submit" class="btn btn-success mt-2">+</button>
+			{{ form_end(formCocktail) }}
+		</div>
+	</div>
+
+{% endblock %}
